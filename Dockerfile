@@ -1,16 +1,21 @@
 FROM debian:stable
 MAINTAINER Lucia Chousal Rodriguez
 
-RUN apt-get update
-RUN apt-get install -y -q build-essential python-gdal python-simplejson
-RUN apt-get install -y python python-pip wget
-RUN apt-get install -y python-dev
+RUN apt-get update -y
+RUN apt-get install -y \
+    libssl-dev \
+    libffi-dev \
+    python3 \
+    python3-dev \
+    python3-pip \
+    git \
+    && apt-get clean
 
 WORKDIR /app
 
-RUN pip install Flask
+RUN pip3 install flask
 
 COPY contenedores/service.py /app
 
-ENTRYPOINT ["python"]
+ENTRYPOINT ["python3"]
 CMD ["service.py"]
