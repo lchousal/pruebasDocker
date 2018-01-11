@@ -1,8 +1,8 @@
 FROM debian:stable
 MAINTAINER Lucia Chousal Rodriguez
 
-RUN apt-get update
-RUN apt-get install -y python-pip python-dev build-esential
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
 
 WORKDIR /app
 
