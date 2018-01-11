@@ -2,7 +2,9 @@ FROM debian:stable
 MAINTAINER Lucia Chousal Rodriguez
 
 RUN apt-get update
-RUN apt-get install -y python-pip python-dev build-essential
+RUN apt-get install -y -q build-essential python-gdal python-simplejson
+RUN apt-get install -y python python-pip wget
+RUN apt-get install -y python-dev
 
 WORKDIR /app
 
