@@ -1,21 +1,14 @@
 FROM debian:stable
 MAINTAINER Lucia Chousal Rodriguez
 
-RUN apt-get update -y
-RUN apt-get install -y \
-    libssl-dev \
-    libffi-dev \
-    python3 \
-    python3-dev \
-    python3-pip \
-    git \
-    && apt-get clean
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
 
 WORKDIR /app
 
-RUN pip3 install flask
+RUN pip install Flask==0.10.1
 
-COPY contenedores/service.py /app
+COPY ./contenedores/service.py /app
 
-ENTRYPOINT ["python3"]
+ENTRYPOINT ["python"]
 CMD ["service.py"]
