@@ -1,5 +1,5 @@
 FROM debian:stable
-MANTAINER Lucia Chousal Rodriguez
+MAINTAINER Lucia Chousal Rodriguez
 
 RUN apt-get  -y
 RUN apt-et install -y python-pip python-dev build-esential
