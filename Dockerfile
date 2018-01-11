@@ -10,4 +10,5 @@ RUN pip install Flask
 
 COPY contenedores/service.py /app
 
-ENTRYPOINT python service.py
+ENTRYPOINT ["python"]
+CMD ["service.py"]
